@@ -1,0 +1,621 @@
+/* ==========================================================================
+   The Arcade: global styles
+   Shared by every page. Page-specific rules live next to each page.
+
+   1. Design tokens     5. Page furniture
+   2. Base elements     6. Buttons
+   3. Utilities         7. Footer
+   4. Header and nav    8. Motion preferences
+   ========================================================================== */
+
+/* 1. Design tokens --------------------------------------------------------
+   Every color, size and space on the site comes from this block.
+   Components use the role tokens (--color-*), never the raw ramp.
+   ------------------------------------------------------------------------ */
+:root {
+  color-scheme: light dark;
+
+  /* Neutral ramp: warm newsprint grays */
+  --gray-0: #ffffff;
+  --gray-50: #faf8f3;
+  --gray-100: #f1eee6;
+  --gray-200: #d9d3c5;
+  --gray-600: #5c574d;
+  --gray-900: #1a1a1a;
+
+  /* The one accent (ink blue), plus the puzzle's functional colors */
+  --blue-100: #dce5fa;
+  --blue-600: #1e4fbf;
+  --yellow-200: #ffe08a;
+  --red-700: #b42318;
+
+  /* Color roles (all text pairs checked at 4.5:1 or better) */
+  --color-bg: var(--gray-50);
+  --color-surface: var(--gray-0);
+  --color-surface-alt: var(--gray-100);
+  --color-text: var(--gray-900);
+  --color-text-muted: var(--gray-600);
+  --color-rule: var(--gray-200);
+  --color-rule-strong: var(--gray-900);
+  --color-accent: var(--blue-600);
+  --color-accent-soft: var(--blue-100);
+  --color-on-accent: var(--gray-50);
+  --color-highlight: var(--yellow-200);
+  --color-error: var(--red-700);
+  --color-grid-ink: var(--gray-900);
+
+  /* Type: a serif for reading, a sans for interface and data */
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+
+  /* Type scale: 17px base, ratio 1.25; the largest steps grow with the screen.
+     --step--2 is a floor for tiny labels (clue numbers, tab bar), not a body size. */
+  --step--2: 0.75rem;
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3125rem;
+  --step-2: 1.625rem;
+  --step-3: clamp(1.75rem, 1.45rem + 1.4vw, 2.0625rem);
+  --step-4: clamp(2.125rem, 1.65rem + 2.3vw, 2.5625rem);
+  --step-5: clamp(2.5rem, 1.85rem + 3.2vw, 3.25rem);
+  --step-6: clamp(2.875rem, 1.9rem + 4.8vw, 4.0625rem);
+  --leading-tight: 1.15;
+  --leading-body: 1.6;
+  --tracking-caps: 0.08em;
+  --measure: 65ch;
+
+  /* Spacing: 4px base. The suffix is the multiple of 4px. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --page-width: 68rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --tap-size: 2.75rem;
+  --header-height: 3.5rem;
+  --tabbar-height: 3.75rem;
+
+  /* Lines, corners, motion */
+  --rule-thin: 1px solid var(--color-rule);
+  --rule-strong: 1px solid var(--color-rule-strong);
+  --rule-double: 4px double var(--color-rule-strong);
+  --radius: 2px;
+  --focus-ring: 3px solid var(--color-accent);
+  --transition: 160ms ease-out;
+}
+
+/* Night edition: same roles, inverted ink. Pairs re-checked for contrast. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #161513;
+    --color-surface: #24221e;
+    --color-surface-alt: #1e1c19;
+    --color-text: #ede9e0;
+    --color-text-muted: #aea798;
+    --color-rule: #3b3732;
+    --color-rule-strong: #cfc9bd;
+    --color-accent: #8fb0ff;
+    --color-accent-soft: #26355a;
+    --color-on-accent: #161513;
+    --color-highlight: #463700;
+    --color-error: #ff8b7e;
+    --color-grid-ink: #857e72;
+  }
+}
+
+/* 2. Base elements -------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Scroll padding keeps focused elements clear of the sticky header and,
+   on phones, the fixed tab bar */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-height) + var(--space-4));
+  scroll-padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom) + var(--space-4));
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  /* Room for the bottom tab bar on small screens (removed on wide screens) */
+  padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
+  font-family: var(--font-serif);
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+  font-optical-sizing: auto;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-5);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: var(--step-3);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--step-2);
+}
+
+h4 {
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+h6 {
+  color: var(--color-text-muted);
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+address {
+  margin: 0 0 var(--space-4);
+}
+
+p,
+li {
+  max-width: var(--measure);
+}
+
+address {
+  font-style: normal;
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--transition), text-decoration-thickness var(--transition);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+::selection {
+  color: var(--color-text);
+  background-color: var(--color-highlight);
+}
+
+/* 3. Utilities ------------------------------------------------------------ */
+.container {
+  width: min(100% - 2 * var(--gutter), var(--page-width));
+  margin-inline: auto;
+}
+
+/* Hidden on screen, still read by assistive technology */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  transform: translateY(-150%);
+  transition: transform var(--transition);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* 4. Header and nav --------------------------------------------------------
+   Mobile first: the brand stays in a slim sticky bar at the top and the
+   links become a tab bar fixed to the bottom of the screen.
+   ------------------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: env(safe-area-inset-top);
+  background-color: var(--color-bg);
+  border-bottom: var(--rule-double);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-size);
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.brand__mark {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  transition: transform var(--transition);
+}
+
+.brand:hover .brand__mark {
+  transform: rotate(-8deg);
+}
+
+.nav-list {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 0 0 env(safe-area-inset-bottom);
+  list-style: none;
+  background-color: var(--color-bg);
+  border-top: var(--rule-double);
+}
+
+.nav-list li {
+  max-width: none;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: var(--tabbar-height);
+  padding: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Indicator bar: grows in on hover, stays put on the current page */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 25%;
+  left: 25%;
+  height: 3px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav-link[aria-current="page"] {
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.nav-link:focus-visible {
+  outline-offset: -3px;
+}
+
+.nav-icon {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+@media (min-width: 40em) {
+  html {
+    scroll-padding-bottom: 0;
+  }
+
+  body {
+    padding-bottom: 0;
+  }
+
+  .nav-list {
+    position: static;
+    display: flex;
+    gap: var(--space-1);
+    padding: 0;
+    background-color: transparent;
+    border-top: 0;
+  }
+
+  .nav-link {
+    flex-direction: row;
+    min-height: var(--header-height);
+    padding-inline: var(--space-3);
+    font-size: var(--step--1);
+    letter-spacing: var(--tracking-caps);
+  }
+
+  .nav-link::after {
+    top: auto;
+    right: var(--space-3);
+    bottom: var(--space-2);
+    left: var(--space-3);
+    transform-origin: left;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .page-head {
+    padding-block: var(--space-12) var(--space-8);
+  }
+}
+
+/* 5. Page furniture: kickers, decks, section titles ------------------------ */
+.page-head {
+  margin-bottom: var(--space-8);
+  padding-block: var(--space-8) var(--space-6);
+  border-bottom: var(--rule-strong);
+}
+
+.page-head h1 {
+  margin-bottom: var(--space-2);
+}
+
+/* Small-caps label above a headline, with a short accent bar */
+.kicker {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  height: 3px;
+  margin-right: var(--space-2);
+  vertical-align: middle;
+  background-color: var(--color-accent);
+}
+
+/* The italic line under a headline */
+.deck {
+  max-width: 52ch;
+  font-size: var(--step-1);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.section-title {
+  margin-bottom: var(--space-6);
+  padding-top: var(--space-3);
+  font-size: var(--step-2);
+  border-top: var(--rule-double);
+}
+
+.meta {
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
+/* A standalone text link, sized as a proper tap target */
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--tap-size);
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.more-link svg {
+  width: 1.125em;
+  height: 1.125em;
+  transition: transform var(--transition);
+}
+
+.more-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* 6. Buttons --------------------------------------------------------------
+   Used on links, buttons, a summary and a checkbox label.
+   ------------------------------------------------------------------------ */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-size);
+  padding: var(--space-2) var(--space-6);
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-on-accent);
+  text-decoration: none;
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button--ghost {
+  color: var(--color-accent);
+  background-color: transparent;
+}
+
+.button--ghost:hover {
+  background-color: var(--color-accent-soft);
+}
+
+.button svg {
+  width: 1.25em;
+  height: 1.25em;
+  transition: transform var(--transition);
+}
+
+.button:hover svg {
+  transform: translateX(3px);
+}
+
+/* 7. Footer --------------------------------------------------------------- */
+.site-footer {
+  margin-top: var(--space-16);
+  padding-block: var(--space-8);
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  border-top: var(--rule-double);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-8);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-size);
+}
+
+.footer-ornament {
+  width: 7.5rem;
+  margin: 0 auto var(--space-6);
+}
+
+/* 8. Motion preferences --------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
