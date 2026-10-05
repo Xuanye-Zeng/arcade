@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .ink { fill: #1a1a1a; stroke: #1a1a1a; }
+    .paper { fill: #faf8f3; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #ede9e0; stroke: #ede9e0; }
+      .paper { fill: #161513; }
+    }
+  </style>
+  <rect class="paper" width="32" height="32"/>
+  <rect class="ink" x="16" y="2" width="14" height="14" stroke-width="0"/>
+  <rect class="ink" x="2" y="16" width="14" height="14" stroke-width="0"/>
+  <g class="ink" fill="none" stroke-linecap="square" style="fill: none">
+    <rect x="1.5" y="1.5" width="29" height="29" stroke-width="3"/>
+    <path d="M16 2v28M2 16h28" stroke-width="2"/>
+    <path d="M6 6l6 6M12 6l-6 6" stroke-width="2.5"/>
+    <path d="M20 20h6l-6 6h6" stroke-width="2.5"/>
+  </g>
+</svg>
