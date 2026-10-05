@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About &middot; Xuanye Zeng&rsquo;s Arcade</title>
+  <meta name="description" content="Xuanye Zeng: experience, projects, education and skills.">
+  <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..600&amp;display=swap">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Primary">
+      <a class="brand" href="../">
+        <svg class="brand__mark" aria-hidden="true"><use href="../assets/icons/sprite.svg#logo"></use></svg>
+        <span>Xuanye Zeng&rsquo;s Arcade</span>
+      </a>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="../"><svg class="nav-icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-home"></use></svg>Home</a></li>
+        <li><a class="nav-link" href="../game/"><svg class="nav-icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-puzzle"></use></svg>Play</a></li>
+        <li><a class="nav-link" href="./" aria-current="page"><svg class="nav-icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-person"></use></svg>About</a></li>
+        <li><a class="nav-link" href="../contact/"><svg class="nav-icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-mail"></use></svg>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <article class="profile">
+      <header class="page-head">
+        <p class="kicker">Profile</p>
+        <h1>Xuanye Zeng</h1>
+        <p class="deck">Computer science graduate student at Northeastern University in Seattle, building backend and AI systems that check their own work.</p>
+      </header>
+
+      <div class="profile-intro">
+        <figure class="portrait">
+          <img src="../assets/images/portrait-720.jpg" srcset="../assets/images/portrait-360.jpg 360w, ../assets/images/portrait-720.jpg 720w" sizes="(min-width: 40em) 16rem, 14rem" width="720" height="720" alt="Portrait of Xuanye Zeng, smiling, wearing a gray sweater over a white collared shirt.">
+          <figcaption>Xuanye Zeng &middot; M.S. Computer Science, expected December 2027</figcaption>
+        </figure>
+
+        <div class="lede">
+          <p>Computer science is my second engineering degree. I&rsquo;m a master&rsquo;s student at Northeastern University&rsquo;s Seattle campus, after a bachelor&rsquo;s in mechanical engineering at the University of Science and Technology Beijing, where a research project on reinforcement learning for context management in AI systems pulled me toward code.</p>
+          <p>Most of my work sits where backend engineering meets AI. This summer at Smart Carrier (Onki) I built the service that turns messy merchant product data into the structured records a voice AI agent runs on. In my own projects I like to keep models honest: validate input at the door, keep deterministic rules in charge of decisions, and gate model output in CI.</p>
+          <p>This arcade is where I practice the front end. It opens with a crossword built from nothing but HTML and CSS, and it gains a new game every few weeks this semester.</p>
+          <p class="status"><strong>Currently:</strong> open to [software engineering internships or co-ops for 2027 &mdash; edit me].</p>
+        </div>
+      </div>
+
+      <section class="profile-section" aria-labelledby="experience-title">
+        <h2 id="experience-title" class="section-title">Experience</h2>
+        <ol class="timeline">
+          <li>
+            <article class="entry">
+              <p class="entry__date"><time datetime="2026-05">May</time> &ndash; <time datetime="2026-08">Aug 2026</time></p>
+              <div class="entry__body">
+                <h3>Smart Carrier Inc. (Onki)</h3>
+                <h4>AI Engineering Intern</h4>
+                <ul class="entry__points">
+                  <li>Built a catalog-intake service in Python and FastAPI that turns unstructured merchant product data into the structured records a voice AI agent runs on, replacing a manual ops workflow.</li>
+                  <li>Shipped an LLM-based validator that flags missing fields and anomalous values at ingestion, before bad input can become a wrong answer.</li>
+                  <li>Made state transitions idempotent so duplicate submits cannot corrupt state, and replaced server-side sessions with stateless HMAC-SHA256 tokens verified in constant time.</li>
+                  <li>Cut the onboarding lifecycle from six states to three over two cross-functional design reviews, making resubmission one click.</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="entry">
+              <p class="entry__date"><time datetime="2024-07">Jul</time> &ndash; <time datetime="2024-08">Aug 2024</time></p>
+              <div class="entry__body">
+                <h3>Beijing Jingdiao Group</h3>
+                <h4>Software &amp; Automation Engineer Intern</h4>
+                <ul class="entry__points">
+                  <li>Wrote a sensor fault-detection workflow in C that found failure patterns in diagnostic logs and triggered automated recovery, cutting equipment downtime 33%.</li>
+                  <li>Added a pre-run validation script that gated jobs on machine-state checks, blocking runs that would have failed mid-job and reducing unplanned stops 15%.</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+      <section class="profile-section" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section-title">Projects</h2>
+        <div class="project-grid">
+          <article class="project">
+            <h3>Nexus: Multi-Agent LLM Platform</h3>
+            <p class="meta"><time datetime="2026-05">May</time> &ndash; <time datetime="2026-08">Aug 2026</time> &middot; LangGraph, PostgreSQL, pgvector, React, TypeScript</p>
+            <ul class="entry__points">
+              <li>A LangGraph agent orchestrating eight tools behind an intent classifier, with RAG over pgvector that grounds answers in retrieved records.</li>
+              <li>An evaluation loop that gates LLM output in CI. Its first run caught the model inventing numbers that were not in the input.</li>
+              <li>Resolved employer names across 404K records into 48K entities at a 97% hit rate.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>Clinical Data Reconciliation Engine</h3>
+            <p class="meta"><time datetime="2026-04">Apr 2026</time> &middot; Rule engine, LLM, JSON schemas</p>
+            <ul class="entry__points">
+              <li>Kept the LLM out of the decision path: a deterministic rule engine owns drug selection and the safety check, and the model only rewrites the explanation.</li>
+              <li>Checked every response for groundedness and shape, with silent fallback to rule-based output when the model is slow or off-format.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>ML Feature Pipeline and Training System</h3>
+            <p class="meta"><time datetime="2026-03">Mar 2026</time> &middot; PyTorch, scikit-learn, Ray Tune</p>
+            <ul class="entry__points">
+              <li>Every training run reproducible from a config file, across 15 runs with per-run manifests and drift monitoring.</li>
+              <li>Compared logistic regression, random forest and a PyTorch MLP over 60 Ray Tune trials, selecting on F1.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>CloudScale: Distributed Inventory and Orders</h3>
+            <p class="meta"><time datetime="2025-10">Oct</time> &ndash; <time datetime="2025-12">Dec 2025</time> &middot; Go, Docker, Kubernetes</p>
+            <ul class="entry__points">
+              <li>Four Go microservices sustaining 35K requests per second at 1.3&nbsp;ms p50 with zero errors over 525K requests.</li>
+              <li>Traced a 97.7% error rate to the load generator&rsquo;s connection pooling rather than the service; fixing it raised throughput six times over.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="profile-section" aria-labelledby="education-title">
+        <h2 id="education-title" class="section-title">Education</h2>
+        <ol class="timeline">
+          <li>
+            <article class="entry">
+              <p class="entry__date"><time datetime="2025-09">Sep 2025</time> &ndash; <time datetime="2027-12">Dec 2027</time></p>
+              <div class="entry__body">
+                <h3>Northeastern University &ndash; Seattle</h3>
+                <h4>Master of Science, Computer Science</h4>
+                <p>GPA 4.0 / 4.0 &middot; Expected graduation December 2027</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="entry">
+              <p class="entry__date"><time datetime="2021-09">Sep 2021</time> &ndash; <time datetime="2025-07">Jul 2025</time></p>
+              <div class="entry__body">
+                <h3>University of Science and Technology Beijing</h3>
+                <h4>Bachelor of Engineering, Mechanical Engineering</h4>
+                <section class="research" aria-labelledby="research-title">
+                  <h5 id="research-title">Research</h5>
+                  <p>Reinforcement learning for context management in AI systems: designing and running experiments and tuning models.</p>
+                  <h6>Recognition</h6>
+                  <p>Second Prize, Student Research Training Program</p>
+                </section>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+      <section class="profile-section" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section-title">Skills</h2>
+        <dl class="skills">
+          <div>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="tags">
+                <li>Python</li>
+                <li>Go</li>
+                <li>Java</li>
+                <li>TypeScript / JavaScript</li>
+                <li>C / C++</li>
+                <li>SQL</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>AI and ML</dt>
+            <dd>
+              <ul class="tags">
+                <li>PyTorch</li>
+                <li>scikit-learn</li>
+                <li>Ray Tune</li>
+                <li>LangGraph</li>
+                <li>RAG</li>
+                <li>pgvector</li>
+                <li>Ollama</li>
+                <li>Anthropic and OpenAI APIs</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Backend and infra</dt>
+            <dd>
+              <ul class="tags">
+                <li>FastAPI</li>
+                <li>Spring Boot</li>
+                <li>PostgreSQL</li>
+                <li>Redis</li>
+                <li>Celery</li>
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>AWS</li>
+                <li>GitHub Actions</li>
+                <li>pytest</li>
+                <li>Linux</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Foundations</dt>
+            <dd>
+              <ul class="tags">
+                <li>Data structures and algorithms</li>
+                <li>Operating systems</li>
+                <li>Distributed systems</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img class="footer-ornament" src="../assets/images/ornament.svg" width="120" height="16" alt="">
+      <div class="site-footer__inner">
+        <p>&copy; 2026 Xuanye Zeng</p>
+        <p>Set in Newsreader and Libre Franklin. Printed in HTML and CSS, no JavaScript.</p>
+        <p><a href="#top">Back to top</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
