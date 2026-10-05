@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Xuanye Zeng&rsquo;s Arcade</title>
+  <meta name="description" content="A small, growing arcade of puzzles and games by Xuanye Zeng, built by hand in HTML and CSS.">
+  <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..600&amp;display=swap">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Primary">
+      <a class="brand" href="./">
+        <svg class="brand__mark" aria-hidden="true"><use href="assets/icons/sprite.svg#logo"></use></svg>
+        <span>Xuanye Zeng&rsquo;s Arcade</span>
+      </a>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="./" aria-current="page"><svg class="nav-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-home"></use></svg>Home</a></li>
+        <li><a class="nav-link" href="game/"><svg class="nav-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-puzzle"></use></svg>Play</a></li>
+        <li><a class="nav-link" href="about/"><svg class="nav-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-person"></use></svg>About</a></li>
+        <li><a class="nav-link" href="contact/"><svg class="nav-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-mail"></use></svg>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <p class="dateline">
+      <span>Vol. 1 &middot; No. 1</span>
+      <span>Seattle &middot; Fall 2026</span>
+      <span>The no-JavaScript edition</span>
+    </p>
+
+    <section class="lead" aria-labelledby="lead-title">
+      <h1 id="lead-title">Small games, made by hand.</h1>
+      <p class="deck">A growing arcade of puzzles by Xuanye Zeng, set entirely in HTML and CSS with not a single line of JavaScript.</p>
+    </section>
+
+    <div class="front">
+      <div class="front__main">
+        <article class="story story--puzzle" aria-labelledby="puzzle-title">
+          <p class="kicker">The Puzzle</p>
+          <h2 id="puzzle-title">Today&rsquo;s Mini Crossword</h2>
+          <p class="meta">Puzzle No. 1 &middot; 5&times;5 &middot; 10 clues &middot; About three minutes</p>
+          <div class="story__body">
+            <img class="story__preview" src="assets/images/mini-preview.svg" width="212" height="212" alt="Preview of the mini crossword: an empty five-by-five grid with black squares in the top-left and bottom-right corners.">
+            <div>
+              <p>Five across, five down, no timer. Type straight into the grid, turn on answer checking when you want a nudge, and reveal the solution if you get stuck.</p>
+              <a class="button" href="game/">Play the Mini <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <section class="story story--notes" aria-labelledby="notes-title">
+          <p class="kicker">From the Press Room</p>
+          <h2 id="notes-title">How the Mini works</h2>
+          <ul class="notes-list">
+            <li><strong>The grid</strong> is CSS Grid holding 23 one-letter text inputs, each labelled with its row, its column and its clues.</li>
+            <li><strong>The highlighting</strong> uses <code>:has()</code> and <code>:focus</code> to light up the word you are in and its clue.</li>
+            <li><strong>The solved stamp</strong> is the browser&rsquo;s own form validation: <code>form:valid</code> only matches once every letter is right.</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="sidebar" aria-label="About the editor">
+        <section class="story story--editor" aria-labelledby="editor-title">
+          <p class="kicker">From the Editor</p>
+          <img class="editor-photo" src="assets/images/portrait-360.jpg" width="360" height="360" alt="Portrait of Xuanye Zeng.">
+          <h2 id="editor-title">Hi, I&rsquo;m Xuanye.</h2>
+          <p>I&rsquo;m a computer science master&rsquo;s student at Northeastern University in Seattle. I build backend and AI systems; this arcade is where I practice the front end.</p>
+          <a class="more-link" href="about/">Read the profile <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
+        </section>
+
+        <section class="story story--letters" aria-labelledby="letters-title">
+          <p class="kicker">Letters</p>
+          <h2 id="letters-title">Say hello</h2>
+          <p>Recruiters, classmates and fellow puzzle people are all welcome to write.</p>
+          <a class="more-link" href="contact/">How to reach me <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
+        </section>
+      </aside>
+    </div>
+
+    <section class="in-press" aria-labelledby="press-title">
+      <h2 id="press-title" class="section-title">In Press</h2>
+      <p class="meta">Three more games join the arcade over the course of the semester.</p>
+      <ol class="press-list">
+        <li class="press-card">
+          <h3>Game No. 2</h3>
+          <p>In development</p>
+        </li>
+        <li class="press-card">
+          <h3>Game No. 3</h3>
+          <p>In development</p>
+        </li>
+        <li class="press-card">
+          <h3>Game No. 4</h3>
+          <p>In development</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img class="footer-ornament" src="assets/images/ornament.svg" width="120" height="16" alt="">
+      <div class="site-footer__inner">
+        <p>&copy; 2026 Xuanye Zeng</p>
+        <p>Set in Newsreader and Libre Franklin. Printed in HTML and CSS, no JavaScript.</p>
+        <p><a href="#top">Back to top</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
