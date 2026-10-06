@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Contact page: channels set like boxed classified ads
+   Contact page
    ========================================================================== */
 
 .channels {
@@ -52,7 +52,7 @@
   overflow-wrap: break-word;
 }
 
-/* Stretch the link over the whole card so the card is one big tap target */
+/* Stretch the link over the card so the whole card is clickable */
 .channel__link::after {
   content: "";
   position: absolute;

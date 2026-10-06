@@ -2,7 +2,7 @@
    The Arcade: global styles
    Shared by every page. Page-specific rules live next to each page.
 
-   1. Design tokens     5. Page furniture
+   1. Design tokens     5. Shared page parts
    2. Base elements     6. Buttons
    3. Utilities         7. Footer
    4. Header and nav    8. Motion preferences
@@ -15,7 +15,7 @@
 :root {
   color-scheme: light dark;
 
-  /* Neutral ramp: warm newsprint grays */
+  /* Neutral ramp (warm grays) */
   --gray-0: #ffffff;
   --gray-50: #faf8f3;
   --gray-100: #f1eee6;
@@ -23,7 +23,7 @@
   --gray-600: #5c574d;
   --gray-900: #1a1a1a;
 
-  /* The one accent (ink blue), plus the puzzle's functional colors */
+  /* Accent (blue) plus the puzzle's state colors */
   --blue-100: #dce5fa;
   --blue-600: #1e4fbf;
   --yellow-200: #ffe08a;
@@ -44,7 +44,7 @@
   --color-error: var(--red-700);
   --color-grid-ink: var(--gray-900);
 
-  /* Type: a serif for reading, a sans for interface and data */
+  /* Fonts: serif for body text, sans for UI and labels */
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
   --font-sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
 
@@ -90,7 +90,7 @@
   --transition: 160ms ease-out;
 }
 
-/* Night edition: same roles, inverted ink. Pairs re-checked for contrast. */
+/* Dark mode: same roles with dark values (contrast re-checked) */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #161513;
@@ -361,7 +361,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* Indicator bar: grows in on hover, stays put on the current page */
+/* Underline bar: shown on hover and on the current page */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -440,7 +440,7 @@ a:hover {
   }
 }
 
-/* 5. Page furniture: kickers, decks, section titles ------------------------ */
+/* 5. Shared page parts: kickers, decks, section titles -------------------- */
 .page-head {
   margin-bottom: var(--space-8);
   padding-block: var(--space-8) var(--space-6);
@@ -472,7 +472,7 @@ a:hover {
   background-color: var(--color-accent);
 }
 
-/* The italic line under a headline */
+/* Subtitle under a headline */
 .deck {
   max-width: 52ch;
   font-size: var(--step-1);
@@ -495,7 +495,7 @@ a:hover {
   color: var(--color-text-muted);
 }
 
-/* A standalone text link, sized as a proper tap target */
+/* Standalone link with a 44px tap target */
 .more-link {
   display: inline-flex;
   align-items: center;

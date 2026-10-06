@@ -73,7 +73,7 @@
   border: 0;
 }
 
-/* The 1px gap shows the grid's background through as the ruled lines */
+/* The 1px gap lets the grid background show through as grid lines */
 .grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(var(--tap-size), 1fr));
@@ -290,7 +290,7 @@
   display: none;
 }
 
-/* Chevron that turns when the solution opens */
+/* Arrow that rotates when the solution opens */
 .reveal summary::before {
   content: "";
   width: 0.45em;
