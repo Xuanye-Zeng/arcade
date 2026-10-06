@@ -41,7 +41,7 @@
   display: none;
 }
 
-.current-clue__label {
+.current-clue b {
   display: inline-block;
   min-width: 2.25em;
   font-weight: 800;
@@ -98,7 +98,9 @@
   background-color: var(--color-surface-alt);
 }
 
-.cell__num {
+/* Clue number in the corner, from the cell's data-num attribute */
+.cell[data-num]::before {
+  content: attr(data-num);
   position: absolute;
   top: 0.2rem;
   left: 0.3rem;
@@ -110,9 +112,10 @@
   pointer-events: none;
 }
 
-/* The input fills the whole square, so the entire cell is the tap target */
+/* The input fills the whole square, so the entire cell is the tap target.
+   ::after holds the answer letter (data-answer) for the reveal. */
 .cell__input,
-.cell__answer {
+.cell[data-answer]::after {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -146,7 +149,8 @@
   outline-offset: -3px;
 }
 
-.cell__answer {
+.cell[data-answer]::after {
+  content: attr(data-answer);
   display: grid;
   place-items: center;
   color: var(--color-accent);
@@ -174,18 +178,10 @@
   color: var(--color-accent);
 }
 
+/* The red corner is a gradient that stops 0.625rem in from the top-right */
 .puzzle:has(#check-answers:checked) .cell__input:not(:placeholder-shown):invalid {
   color: var(--color-error);
-}
-
-.puzzle:has(#check-answers:checked) .cell:has(.cell__input:not(:placeholder-shown):invalid)::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-top: 0.875rem solid var(--color-error);
-  border-left: 0.875rem solid transparent;
-  pointer-events: none;
+  background-image: linear-gradient(225deg, var(--color-error) 0.625rem, transparent 0.625rem);
 }
 
 /* A finished grid: every required input matches its pattern */
@@ -194,7 +190,7 @@
 }
 
 /* Reveal: show the answer layer and hide whatever was typed underneath */
-.puzzle:has(#solution[open]) .cell__answer {
+.puzzle:has(#solution[open]) .cell::after {
   visibility: visible;
 }
 

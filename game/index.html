@@ -42,121 +42,90 @@
         <!-- Shows the clues for the focused square; screen readers get them through aria-describedby instead -->
         <div class="current-clue" aria-hidden="true">
           <p class="current-clue__empty">Select a square to see its clues.</p>
-          <p class="current-clue__item now-a1"><span class="current-clue__label">1A</span> Have to</p>
-          <p class="current-clue__item now-a5"><span class="current-clue__label">5A</span> Knight&rsquo;s long weapon</p>
-          <p class="current-clue__item now-a6"><span class="current-clue__label">6A</span> Alphabetical list at the back of a book</p>
-          <p class="current-clue__item now-a7"><span class="current-clue__label">7A</span> Secret ___ (spy)</p>
-          <p class="current-clue__item now-a8"><span class="current-clue__label">8A</span> Like a steak with a red center</p>
-          <p class="current-clue__item now-d1"><span class="current-clue__label">1D</span> Japanese comics</p>
-          <p class="current-clue__item now-d2"><span class="current-clue__label">2D</span> Beneath</p>
-          <p class="current-clue__item now-d3"><span class="current-clue__label">3D</span> &ldquo;Don&rsquo;t make a ___!&rdquo;</p>
-          <p class="current-clue__item now-d4"><span class="current-clue__label">4D</span> Message sent from a phone</p>
-          <p class="current-clue__item now-d5"><span class="current-clue__label">5D</span> Pinocchio, notoriously</p>
+          <p class="current-clue__item now-a1"><b>1A</b> Have to</p>
+          <p class="current-clue__item now-a5"><b>5A</b> Knight&rsquo;s long weapon</p>
+          <p class="current-clue__item now-a6"><b>6A</b> Alphabetical list at the back of a book</p>
+          <p class="current-clue__item now-a7"><b>7A</b> Secret ___ (spy)</p>
+          <p class="current-clue__item now-a8"><b>8A</b> Like a steak with a red center</p>
+          <p class="current-clue__item now-d1"><b>1D</b> Japanese comics</p>
+          <p class="current-clue__item now-d2"><b>2D</b> Beneath</p>
+          <p class="current-clue__item now-d3"><b>3D</b> &ldquo;Don&rsquo;t make a ___!&rdquo;</p>
+          <p class="current-clue__item now-d4"><b>4D</b> Message sent from a phone</p>
+          <p class="current-clue__item now-d5"><b>5D</b> Pinocchio, notoriously</p>
         </div>
 
         <fieldset class="board">
           <legend class="visually-hidden">Crossword grid, 5 rows by 5 columns. The squares at row 1, column 1 and row 5, column 5 are black.</legend>
           <div class="grid">
             <div class="cell cell--block" aria-hidden="true"></div>
-            <div class="cell a1 d1">
-              <span class="cell__num" aria-hidden="true">1</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Mm]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 2" aria-describedby="clue-a1 clue-d1">
-              <span class="cell__answer" aria-hidden="true">M</span>
+            <div class="cell a1 d1" data-num="1" data-answer="M">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Mm]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 2, 1 Across, 1 Down" aria-describedby="clue-a1 clue-d1">
             </div>
-            <div class="cell a1 d2">
-              <span class="cell__num" aria-hidden="true">2</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Uu]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 3" aria-describedby="clue-a1 clue-d2">
-              <span class="cell__answer" aria-hidden="true">U</span>
+            <div class="cell a1 d2" data-num="2" data-answer="U">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Uu]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 3, 1 Across, 2 Down" aria-describedby="clue-a1 clue-d2">
             </div>
-            <div class="cell a1 d3">
-              <span class="cell__num" aria-hidden="true">3</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ss]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 4" aria-describedby="clue-a1 clue-d3">
-              <span class="cell__answer" aria-hidden="true">S</span>
+            <div class="cell a1 d3" data-num="3" data-answer="S">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ss]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 4, 1 Across, 3 Down" aria-describedby="clue-a1 clue-d3">
             </div>
-            <div class="cell a1 d4">
-              <span class="cell__num" aria-hidden="true">4</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Tt]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 5" aria-describedby="clue-a1 clue-d4">
-              <span class="cell__answer" aria-hidden="true">T</span>
+            <div class="cell a1 d4" data-num="4" data-answer="T">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Tt]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 1, column 5, 1 Across, 4 Down" aria-describedby="clue-a1 clue-d4">
             </div>
-            <div class="cell a5 d5">
-              <span class="cell__num" aria-hidden="true">5</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ll]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 1" aria-describedby="clue-a5 clue-d5">
-              <span class="cell__answer" aria-hidden="true">L</span>
+            <div class="cell a5 d5" data-num="5" data-answer="L">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ll]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 1, 5 Across, 5 Down" aria-describedby="clue-a5 clue-d5">
             </div>
-            <div class="cell a5 d1">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Aa]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 2" aria-describedby="clue-a5 clue-d1">
-              <span class="cell__answer" aria-hidden="true">A</span>
+            <div class="cell a5 d1" data-answer="A">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Aa]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 2, 5 Across, 1 Down" aria-describedby="clue-a5 clue-d1">
             </div>
-            <div class="cell a5 d2">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Nn]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 3" aria-describedby="clue-a5 clue-d2">
-              <span class="cell__answer" aria-hidden="true">N</span>
+            <div class="cell a5 d2" data-answer="N">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Nn]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 3, 5 Across, 2 Down" aria-describedby="clue-a5 clue-d2">
             </div>
-            <div class="cell a5 d3">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Cc]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 4" aria-describedby="clue-a5 clue-d3">
-              <span class="cell__answer" aria-hidden="true">C</span>
+            <div class="cell a5 d3" data-answer="C">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Cc]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 4, 5 Across, 3 Down" aria-describedby="clue-a5 clue-d3">
             </div>
-            <div class="cell a5 d4">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 5" aria-describedby="clue-a5 clue-d4">
-              <span class="cell__answer" aria-hidden="true">E</span>
+            <div class="cell a5 d4" data-answer="E">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 2, column 5, 5 Across, 4 Down" aria-describedby="clue-a5 clue-d4">
             </div>
-            <div class="cell a6 d5">
-              <span class="cell__num" aria-hidden="true">6</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ii]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 1" aria-describedby="clue-a6 clue-d5">
-              <span class="cell__answer" aria-hidden="true">I</span>
+            <div class="cell a6 d5" data-num="6" data-answer="I">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ii]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 1, 6 Across, 5 Down" aria-describedby="clue-a6 clue-d5">
             </div>
-            <div class="cell a6 d1">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Nn]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 2" aria-describedby="clue-a6 clue-d1">
-              <span class="cell__answer" aria-hidden="true">N</span>
+            <div class="cell a6 d1" data-answer="N">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Nn]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 2, 6 Across, 1 Down" aria-describedby="clue-a6 clue-d1">
             </div>
-            <div class="cell a6 d2">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Dd]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 3" aria-describedby="clue-a6 clue-d2">
-              <span class="cell__answer" aria-hidden="true">D</span>
+            <div class="cell a6 d2" data-answer="D">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Dd]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 3, 6 Across, 2 Down" aria-describedby="clue-a6 clue-d2">
             </div>
-            <div class="cell a6 d3">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 4" aria-describedby="clue-a6 clue-d3">
-              <span class="cell__answer" aria-hidden="true">E</span>
+            <div class="cell a6 d3" data-answer="E">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 4, 6 Across, 3 Down" aria-describedby="clue-a6 clue-d3">
             </div>
-            <div class="cell a6 d4">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Xx]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 5" aria-describedby="clue-a6 clue-d4">
-              <span class="cell__answer" aria-hidden="true">X</span>
+            <div class="cell a6 d4" data-answer="X">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Xx]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 3, column 5, 6 Across, 4 Down" aria-describedby="clue-a6 clue-d4">
             </div>
-            <div class="cell a7 d5">
-              <span class="cell__num" aria-hidden="true">7</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Aa]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 1" aria-describedby="clue-a7 clue-d5">
-              <span class="cell__answer" aria-hidden="true">A</span>
+            <div class="cell a7 d5" data-num="7" data-answer="A">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Aa]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 1, 7 Across, 5 Down" aria-describedby="clue-a7 clue-d5">
             </div>
-            <div class="cell a7 d1">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Gg]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 2" aria-describedby="clue-a7 clue-d1">
-              <span class="cell__answer" aria-hidden="true">G</span>
+            <div class="cell a7 d1" data-answer="G">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Gg]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 2, 7 Across, 1 Down" aria-describedby="clue-a7 clue-d1">
             </div>
-            <div class="cell a7 d2">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 3" aria-describedby="clue-a7 clue-d2">
-              <span class="cell__answer" aria-hidden="true">E</span>
+            <div class="cell a7 d2" data-answer="E">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 3, 7 Across, 2 Down" aria-describedby="clue-a7 clue-d2">
             </div>
-            <div class="cell a7 d3">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Nn]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 4" aria-describedby="clue-a7 clue-d3">
-              <span class="cell__answer" aria-hidden="true">N</span>
+            <div class="cell a7 d3" data-answer="N">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Nn]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 4, 7 Across, 3 Down" aria-describedby="clue-a7 clue-d3">
             </div>
-            <div class="cell a7 d4">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Tt]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 5" aria-describedby="clue-a7 clue-d4">
-              <span class="cell__answer" aria-hidden="true">T</span>
+            <div class="cell a7 d4" data-answer="T">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Tt]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 4, column 5, 7 Across, 4 Down" aria-describedby="clue-a7 clue-d4">
             </div>
-            <div class="cell a8 d5">
-              <span class="cell__num" aria-hidden="true">8</span>
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Rr]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 1" aria-describedby="clue-a8 clue-d5">
-              <span class="cell__answer" aria-hidden="true">R</span>
+            <div class="cell a8 d5" data-num="8" data-answer="R">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Rr]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 1, 8 Across, 5 Down" aria-describedby="clue-a8 clue-d5">
             </div>
-            <div class="cell a8 d1">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Aa]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 2" aria-describedby="clue-a8 clue-d1">
-              <span class="cell__answer" aria-hidden="true">A</span>
+            <div class="cell a8 d1" data-answer="A">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Aa]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 2, 8 Across, 1 Down" aria-describedby="clue-a8 clue-d1">
             </div>
-            <div class="cell a8 d2">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Rr]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 3" aria-describedby="clue-a8 clue-d2">
-              <span class="cell__answer" aria-hidden="true">R</span>
+            <div class="cell a8 d2" data-answer="R">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Rr]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 3, 8 Across, 2 Down" aria-describedby="clue-a8 clue-d2">
             </div>
-            <div class="cell a8 d3">
-              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 4" aria-describedby="clue-a8 clue-d3">
-              <span class="cell__answer" aria-hidden="true">E</span>
+            <div class="cell a8 d3" data-answer="E">
+              <input class="cell__input" type="text" maxlength="1" required pattern="[Ee]" placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Row 5, column 4, 8 Across, 3 Down" aria-describedby="clue-a8 clue-d3">
             </div>
             <div class="cell cell--block" aria-hidden="true"></div>
           </div>
@@ -188,21 +157,21 @@
           <div class="clue-group">
             <h3 class="clue-group__title">Across</h3>
             <ol class="clue-list">
-              <li class="clue" id="clue-a1"><span class="clue__num">1<span class="visually-hidden"> Across:</span></span> Have to</li>
-              <li class="clue" id="clue-a5"><span class="clue__num">5<span class="visually-hidden"> Across:</span></span> Knight&rsquo;s long weapon</li>
-              <li class="clue" id="clue-a6"><span class="clue__num">6<span class="visually-hidden"> Across:</span></span> Alphabetical list at the back of a book</li>
-              <li class="clue" id="clue-a7"><span class="clue__num">7<span class="visually-hidden"> Across:</span></span> Secret ___ (spy)</li>
-              <li class="clue" id="clue-a8"><span class="clue__num">8<span class="visually-hidden"> Across:</span></span> Like a steak with a red center</li>
+              <li class="clue" id="clue-a1"><b class="clue__num">1</b> Have to</li>
+              <li class="clue" id="clue-a5"><b class="clue__num">5</b> Knight&rsquo;s long weapon</li>
+              <li class="clue" id="clue-a6"><b class="clue__num">6</b> Alphabetical list at the back of a book</li>
+              <li class="clue" id="clue-a7"><b class="clue__num">7</b> Secret ___ (spy)</li>
+              <li class="clue" id="clue-a8"><b class="clue__num">8</b> Like a steak with a red center</li>
             </ol>
           </div>
           <div class="clue-group">
             <h3 class="clue-group__title">Down</h3>
             <ol class="clue-list">
-              <li class="clue" id="clue-d1"><span class="clue__num">1<span class="visually-hidden"> Down:</span></span> Japanese comics</li>
-              <li class="clue" id="clue-d2"><span class="clue__num">2<span class="visually-hidden"> Down:</span></span> Beneath</li>
-              <li class="clue" id="clue-d3"><span class="clue__num">3<span class="visually-hidden"> Down:</span></span> &ldquo;Don&rsquo;t make a ___!&rdquo;</li>
-              <li class="clue" id="clue-d4"><span class="clue__num">4<span class="visually-hidden"> Down:</span></span> Message sent from a phone</li>
-              <li class="clue" id="clue-d5"><span class="clue__num">5<span class="visually-hidden"> Down:</span></span> Pinocchio, notoriously</li>
+              <li class="clue" id="clue-d1"><b class="clue__num">1</b> Japanese comics</li>
+              <li class="clue" id="clue-d2"><b class="clue__num">2</b> Beneath</li>
+              <li class="clue" id="clue-d3"><b class="clue__num">3</b> &ldquo;Don&rsquo;t make a ___!&rdquo;</li>
+              <li class="clue" id="clue-d4"><b class="clue__num">4</b> Message sent from a phone</li>
+              <li class="clue" id="clue-d5"><b class="clue__num">5</b> Pinocchio, notoriously</li>
             </ol>
           </div>
         </section>
