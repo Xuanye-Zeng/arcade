@@ -35,7 +35,7 @@
       <header class="page-head">
         <p class="kicker">Profile</p>
         <h1>Xuanye Zeng</h1>
-        <p class="deck">Computer science graduate student at Northeastern University in Seattle, building backend and AI systems that check their own work.</p>
+        <p class="deck">M.S. Computer Science student at Northeastern University in Seattle. I work mostly on backend and AI systems.</p>
       </header>
 
       <div class="profile-intro">
@@ -45,10 +45,10 @@
         </figure>
 
         <div class="lede">
-          <p>Computer science is my second engineering degree. I&rsquo;m a master&rsquo;s student at Northeastern University&rsquo;s Seattle campus, after a bachelor&rsquo;s in mechanical engineering at the University of Science and Technology Beijing, where a research project on reinforcement learning for context management in AI systems pulled me toward code.</p>
-          <p>Most of my work sits where backend engineering meets AI. This summer at Smart Carrier (Onki) I built the service that turns messy merchant product data into the structured records a voice AI agent runs on. In my own projects I like to keep models honest: validate input at the door, keep deterministic rules in charge of decisions, and gate model output in CI.</p>
-          <p>This arcade is where I practice the front end. It opens with a crossword built from nothing but HTML and CSS, and it gains a new game every few weeks this semester.</p>
-          <p class="status"><strong>Currently:</strong> open to [software engineering internships or co-ops for 2027 &mdash; edit me].</p>
+          <p>Computer science is my second degree. I studied mechanical engineering at the University of Science and Technology Beijing, and a research project there on reinforcement learning for context management in AI systems is what got me into software. I&rsquo;m now doing my master&rsquo;s in computer science at Northeastern University&rsquo;s Seattle campus.</p>
+          <p>Most of what I build is backend and AI infrastructure. This summer I interned at Smart Carrier (Onki), where I built the service that turns merchant product data into the structured records their voice AI agent runs on. In my own projects I spend a lot of time on validation and evaluation, so that model output gets checked before anything depends on it.</p>
+          <p>This site is my project for a web development course this semester. It starts with a crossword written in plain HTML and CSS, and three more games will be added before the course ends.</p>
+          <p class="status"><strong>Currently:</strong> open to 2027 new grad SDE and AI Engineer roles.</p>
         </div>
       </div>
 
@@ -63,7 +63,7 @@
                 <h4>AI Engineering Intern</h4>
                 <ul class="entry__points">
                   <li>Built a catalog-intake service in Python and FastAPI that turns unstructured merchant product data into the structured records a voice AI agent runs on, replacing a manual ops workflow.</li>
-                  <li>Shipped an LLM-based validator that flags missing fields and anomalous values at ingestion, before bad input can become a wrong answer.</li>
+                  <li>Shipped an LLM-based validator that flags missing fields and anomalous values before data reaches the model, catching bad input at ingestion instead of as a wrong answer later.</li>
                   <li>Made state transitions idempotent so duplicate submits cannot corrupt state, and replaced server-side sessions with stateless HMAC-SHA256 tokens verified in constant time.</li>
                   <li>Cut the onboarding lifecycle from six states to three over two cross-functional design reviews, making resubmission one click.</li>
                 </ul>
@@ -93,33 +93,34 @@
             <h3>Nexus: Multi-Agent LLM Platform</h3>
             <p class="meta"><time datetime="2026-05">May</time> &ndash; <time datetime="2026-08">Aug 2026</time> &middot; LangGraph, PostgreSQL, pgvector, React, TypeScript</p>
             <ul class="entry__points">
-              <li>A LangGraph agent orchestrating eight tools behind an intent classifier, with RAG over pgvector that grounds answers in retrieved records.</li>
-              <li>An evaluation loop that gates LLM output in CI. Its first run caught the model inventing numbers that were not in the input.</li>
-              <li>Resolved employer names across 404K records into 48K entities at a 97% hit rate.</li>
+              <li>Built a LangGraph agent that orchestrates 8 tools behind an intent classifier, with conversation state in PostgreSQL and a React and TypeScript frontend.</li>
+              <li>Implemented RAG over pgvector with cosine top-k retrieval and a re-scoring pass, so answers are grounded in retrieved records.</li>
+              <li>Designed a CI evaluation loop with hard checks that fail the build and soft checks that only report. Its first run caught the model inventing numbers that weren&rsquo;t in the input.</li>
+              <li>Resolved employer names across 404K records into 48K entities with a 4-layer name matcher (97% hit rate).</li>
             </ul>
           </article>
           <article class="project">
             <h3>Clinical Data Reconciliation Engine</h3>
-            <p class="meta"><time datetime="2026-04">Apr 2026</time> &middot; Rule engine, LLM, JSON schemas</p>
+            <p class="meta"><time datetime="2026-04">Apr 2026</time></p>
             <ul class="entry__points">
-              <li>Kept the LLM out of the decision path: a deterministic rule engine owns drug selection and the safety check, and the model only rewrites the explanation.</li>
-              <li>Checked every response for groundedness and shape, with silent fallback to rule-based output when the model is slow or off-format.</li>
+              <li>Kept the LLM out of the decision path: a deterministic rule engine scores each medication source and owns drug selection and the safety check, and the model only rewrites the explanation.</li>
+              <li>Checked every response for groundedness, JSON shape and length before use, falling back to rule-based output when the model is slow or off-format.</li>
             </ul>
           </article>
           <article class="project">
             <h3>ML Feature Pipeline and Training System</h3>
             <p class="meta"><time datetime="2026-03">Mar 2026</time> &middot; PyTorch, scikit-learn, Ray Tune</p>
             <ul class="entry__points">
-              <li>Every training run reproducible from a config file, across 15 runs with per-run manifests and drift monitoring.</li>
-              <li>Compared logistic regression, random forest and a PyTorch MLP over 60 Ray Tune trials, selecting on F1.</li>
+              <li>Made every training run reproducible from a config file, with a pipeline covering ingestion, schema validation, drift monitoring, tuning and evaluation across 15 runs.</li>
+              <li>Compared logistic regression, random forest and a PyTorch MLP across 60 Ray Tune trials with cross-validation, selecting on F1.</li>
             </ul>
           </article>
           <article class="project">
-            <h3>CloudScale: Distributed Inventory and Orders</h3>
+            <h3>CloudScale: Distributed Inventory and Order System</h3>
             <p class="meta"><time datetime="2025-10">Oct</time> &ndash; <time datetime="2025-12">Dec 2025</time> &middot; Go, Docker, Kubernetes</p>
             <ul class="entry__points">
-              <li>Four Go microservices sustaining 35K requests per second at 1.3&nbsp;ms p50 with zero errors over 525K requests.</li>
-              <li>Traced a 97.7% error rate to the load generator&rsquo;s connection pooling rather than the service; fixing it raised throughput six times over.</li>
+              <li>Split an order system into 4 Go microservices on Docker and Kubernetes, sustaining 35K requests per second at 1.3&nbsp;ms p50 with zero errors over 525K requests.</li>
+              <li>Traced a 97.7% error rate to the load generator, not the service: Go&rsquo;s default transport keeps only two idle connections per host, so the client ran out of ephemeral ports. Pooling connections raised throughput 6x.</li>
             </ul>
           </article>
         </div>
@@ -146,7 +147,7 @@
                 <h4>Bachelor of Engineering, Mechanical Engineering</h4>
                 <section class="research" aria-labelledby="research-title">
                   <h5 id="research-title">Research</h5>
-                  <p>Reinforcement learning for context management in AI systems: designing and running experiments and tuning models.</p>
+                  <p>Reinforcement learning for context management in AI systems: running experiments and tuning.</p>
                   <h6>Recognition</h6>
                   <p>Second Prize, Student Research Training Program</p>
                 </section>
@@ -225,7 +226,7 @@
       <img class="footer-ornament" src="../assets/images/ornament.svg" width="120" height="16" alt="">
       <div class="site-footer__inner">
         <p>&copy; 2026 Xuanye Zeng</p>
-        <p>Set in Newsreader and Libre Franklin. Printed in HTML and CSS, no JavaScript.</p>
+        <p>Built with HTML and CSS. No JavaScript.</p>
         <p><a href="#top">Back to top</a></p>
       </div>
     </div>
