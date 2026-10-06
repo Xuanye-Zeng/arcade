@@ -13,7 +13,7 @@ Xuanye Zeng's personal site and game arcade, built for Project 1 of the web deve
 | `/about/` | Experience, projects, education and skills |
 | `/contact/` | Email, GitHub, LinkedIn and location |
 
-## How the crossword works without JavaScript
+## How the crossword works
 
 - **Grid:** CSS Grid with one `<input maxlength="1">` per open square. Each input has an `aria-label` for its row and column, and `aria-describedby` pointing at its across and down clues.
 - **Word and clue highlighting:** `:has()` with `:focus`, for example `.puzzle:has(.a1 :focus) .a1`.
@@ -32,15 +32,6 @@ contact/                  contact page and contact.css
 styles/global.css         design tokens, base styles, nav, footer (shared)
 assets/icons/             SVG sprite (nav and brand icons) and favicon
 assets/images/            portrait, puzzle preview, ornament
-```
-
-## Run locally
-
-The nav icons come from an external SVG sprite, so open the site through a local server rather than `file://`:
-
-```sh
-python3 -m http.server 8000
-# then visit http://localhost:8000/
 ```
 
 ## Credits
