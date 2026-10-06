@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Xuanye Zeng&rsquo;s Arcade</title>
-  <meta name="description" content="A small, growing arcade of puzzles and games by Xuanye Zeng, built by hand in HTML and CSS.">
+  <meta name="description" content="Xuanye Zeng's personal site, with a few small games built in HTML and CSS.">
   <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,76 +31,71 @@
   </header>
 
   <main id="main" class="container">
-    <p class="dateline">
-      <span>Vol. 1 &middot; No. 1</span>
-      <span>Seattle &middot; Fall 2026</span>
-      <span>The no-JavaScript edition</span>
-    </p>
-
     <section class="lead" aria-labelledby="lead-title">
-      <h1 id="lead-title">Small games, made by hand.</h1>
-      <p class="deck">A growing arcade of puzzles by Xuanye Zeng, set entirely in HTML and CSS with not a single line of JavaScript.</p>
+      <h1 id="lead-title">The Arcade</h1>
+      <p class="deck">A few small browser games I&rsquo;m building this semester, starting with a mini crossword. Everything here is plain HTML and CSS.</p>
     </section>
 
     <div class="front">
       <div class="front__main">
         <article class="story story--puzzle" aria-labelledby="puzzle-title">
-          <p class="kicker">The Puzzle</p>
-          <h2 id="puzzle-title">Today&rsquo;s Mini Crossword</h2>
-          <p class="meta">Puzzle No. 1 &middot; 5&times;5 &middot; 10 clues &middot; About three minutes</p>
+          <p class="kicker">Puzzle No. 1</p>
+          <h2 id="puzzle-title">The Mini Crossword</h2>
+          <p class="meta">5&times;5 &middot; 10 clues</p>
           <div class="story__body">
             <img class="story__preview" src="assets/images/mini-preview.svg" width="212" height="212" alt="Preview of the mini crossword: an empty five-by-five grid with black squares in the top-left and bottom-right corners.">
             <div>
-              <p>Five across, five down, no timer. Type straight into the grid, turn on answer checking when you want a nudge, and reveal the solution if you get stuck.</p>
+              <p>A quick 5&times;5 crossword. You can check your letters as you go, or reveal the answers if you get stuck.</p>
               <a class="button" href="game/">Play the Mini <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
             </div>
           </div>
         </article>
 
         <section class="story story--notes" aria-labelledby="notes-title">
-          <p class="kicker">From the Press Room</p>
-          <h2 id="notes-title">How the Mini works</h2>
+          <p class="kicker">Behind the puzzle</p>
+          <h2 id="notes-title">How it works</h2>
+          <p>There&rsquo;s no JavaScript on this site, so the crossword is built from HTML forms and CSS.</p>
           <ul class="notes-list">
-            <li><strong>The grid</strong> is CSS Grid holding 23 one-letter text inputs, each labelled with its row, its column and its clues.</li>
-            <li><strong>The highlighting</strong> uses <code>:has()</code> and <code>:focus</code> to light up the word you are in and its clue.</li>
-            <li><strong>The solved stamp</strong> is the browser&rsquo;s own form validation: <code>form:valid</code> only matches once every letter is right.</li>
+            <li>Each square is a text input with <code>maxlength="1"</code>, laid out with CSS Grid.</li>
+            <li>The word you&rsquo;re in and its clue are highlighted with <code>:has()</code> and <code>:focus</code>.</li>
+            <li>Each input has a <code>pattern</code> for its letter, so <code>form:valid</code> tells the page when the whole grid is right.</li>
           </ul>
         </section>
       </div>
 
-      <aside class="sidebar" aria-label="About the editor">
-        <section class="story story--editor" aria-labelledby="editor-title">
-          <p class="kicker">From the Editor</p>
-          <img class="editor-photo" src="assets/images/portrait-360.jpg" width="360" height="360" alt="Portrait of Xuanye Zeng.">
-          <h2 id="editor-title">Hi, I&rsquo;m Xuanye.</h2>
-          <p>I&rsquo;m a computer science master&rsquo;s student at Northeastern University in Seattle. I build backend and AI systems; this arcade is where I practice the front end.</p>
-          <a class="more-link" href="about/">Read the profile <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
+      <aside class="sidebar" aria-label="About me">
+        <section class="story story--intro" aria-labelledby="intro-title">
+          <p class="kicker">About</p>
+          <img class="intro-photo" src="assets/images/portrait-360.jpg" width="360" height="360" alt="Portrait of Xuanye Zeng.">
+          <h2 id="intro-title">Hi, I&rsquo;m Xuanye.</h2>
+          <p>I&rsquo;m a CS master&rsquo;s student at Northeastern University in Seattle, graduating in December 2027. Most of my work is in backend and AI engineering.</p>
+          <a class="more-link" href="about/">More about me <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
         </section>
 
-        <section class="story story--letters" aria-labelledby="letters-title">
-          <p class="kicker">Letters</p>
-          <h2 id="letters-title">Say hello</h2>
-          <p>Recruiters, classmates and fellow puzzle people are all welcome to write.</p>
-          <a class="more-link" href="contact/">How to reach me <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
+        <section class="story story--contact" aria-labelledby="contact-title">
+          <p class="kicker">Contact</p>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>Email is the best way to reach me. My GitHub and LinkedIn are on the contact page.</p>
+          <a class="more-link" href="contact/">Contact info <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow"></use></svg></a>
         </section>
       </aside>
     </div>
 
-    <section class="in-press" aria-labelledby="press-title">
-      <h2 id="press-title" class="section-title">In Press</h2>
-      <p class="meta">Three more games join the arcade over the course of the semester.</p>
-      <ol class="press-list">
-        <li class="press-card">
-          <h3>Game No. 2</h3>
-          <p>In development</p>
+    <section class="coming-soon" aria-labelledby="coming-soon-title">
+      <h2 id="coming-soon-title" class="section-title">Coming soon</h2>
+      <p class="meta">Three more games will be added over the semester.</p>
+      <ol class="upcoming-list">
+        <li class="upcoming-card">
+          <h3>Game 2</h3>
+          <p>In progress</p>
         </li>
-        <li class="press-card">
-          <h3>Game No. 3</h3>
-          <p>In development</p>
+        <li class="upcoming-card">
+          <h3>Game 3</h3>
+          <p>In progress</p>
         </li>
-        <li class="press-card">
-          <h3>Game No. 4</h3>
-          <p>In development</p>
+        <li class="upcoming-card">
+          <h3>Game 4</h3>
+          <p>In progress</p>
         </li>
       </ol>
     </section>
@@ -111,7 +106,7 @@
       <img class="footer-ornament" src="assets/images/ornament.svg" width="120" height="16" alt="">
       <div class="site-footer__inner">
         <p>&copy; 2026 Xuanye Zeng</p>
-        <p>Set in Newsreader and Libre Franklin. Printed in HTML and CSS, no JavaScript.</p>
+        <p>Built with HTML and CSS. No JavaScript.</p>
         <p><a href="#top">Back to top</a></p>
       </div>
     </div>
