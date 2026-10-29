@@ -4,6 +4,15 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Local tooling (this site has no build step and ships no JavaScript)
+# Dependencies and build output
 node_modules/
+.svelte-kit/
+build/
 *.log
+
+# Handed in separately, not part of the site
+WRITEUP.md
+docs/
+
+# Unrelated coursework that lives in this folder
+Xuanye_Zeng_ba4.js

@@ -1,0 +1,24 @@
+{
+  "name": "arcade",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./jsconfig.json",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/kit": "^2.20.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.25.0",
+    "svelte-check": "^4.1.5",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@xuanye-zeng/arcade-core": "^1.1.0"
+  }
+}

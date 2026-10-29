@@ -1,0 +1,55 @@
+# Builds the site and publishes it to GitHub Pages.
+#
+# The app installs @xuanye-zeng/arcade-core from npm like any other
+# dependency, so the package has to be published before the first deploy.
+#
+# BASE_PATH tells SvelteKit the site is served from /<repo> rather than the
+# domain root; svelte.config.js reads it and prefixes every link and asset.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test
+
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
